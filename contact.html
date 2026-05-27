@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact & About Us — Hope For Healing Foundation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="trace.svg">
+  <style>
+    :root {
+      --blush:      #e8c8d4;
+      --rose:       #c998b0;
+      --mauve:      #7d5a7e;
+      --deep-mauve: #5c3d6b;
+      --sage:       #a8b89a;
+      --sage-light: #c8d8bc;
+      --cream:      #f9f4f0;
+      --white:      #ffffff;
+      --text:       #3d2d3e;
+      --text-light: #6b556c;
+      --shadow:     rgba(125, 90, 126, 0.12);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(249, 244, 240, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(200, 160, 180, 0.2);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+      box-shadow: 0 2px 20px var(--shadow);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--mauve);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-light);
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0; right: 0;
+      height: 1px;
+      background: var(--rose);
+      transform: scaleX(0);
+      transition: transform 0.25s;
+    }
+    .nav-links a:hover { color: var(--mauve); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-home {
+      background: var(--mauve);
+      color: var(--white) !important;
+      padding: 0.5rem 1.4rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+    }
+    .nav-home::after { display: none !important; }
+    .nav-home:hover { background: var(--deep-mauve) !important; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--mauve); border-radius: 2px;
+    }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 70px; left: 0; right: 0;
+      background: var(--cream);
+      border-bottom: 1px solid rgba(200, 160, 180, 0.2);
+      padding: 1.5rem 2rem;
+      z-index: 99;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 1rem;
+      color: var(--text-light);
+      font-weight: 500;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(200, 160, 180, 0.15);
+    }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding: 9rem 2rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--white);
+    }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,200,212,0.35), transparent 70%);
+    }
+    .page-header::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(168,184,154,0.25), transparent 70%);
+    }
+    .page-header-content { position: relative; }
+    .page-eyebrow {
+      font-family: 'Dancing Script', cursive;
+      color: var(--rose);
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .page-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 3.5rem);
+      font-weight: 300;
+      color: var(--deep-mauve);
+      line-height: 1.2;
+    }
+    .page-header h1 em { font-style: italic; color: var(--mauve); }
+    .page-header p {
+      color: var(--text-light);
+      font-weight: 300;
+      max-width: 500px;
+      margin: 1.2rem auto 0;
+    }
+
+    /* SECTION SHARED */
+    section { padding: 5rem 2rem; }
+    .inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1rem;
+      color: var(--rose);
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 400;
+      color: var(--deep-mauve);
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-light);
+      font-weight: 300;
+      max-width: 540px;
+      margin: 0 auto 3rem;
+    }
+
+    /* ABOUT */
+    .about { background: var(--cream); }
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-img-wrapper {
+      position: relative;
+    }
+    .about-logo {
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto;
+      filter: drop-shadow(0 20px 50px rgba(125, 90, 126, 0.2));
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    .about-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 400;
+      color: var(--deep-mauve);
+      margin-bottom: 1.2rem;
+      line-height: 1.3;
+    }
+    .about-text h2 em { font-style: italic; color: var(--mauve); }
+    .about-text p {
+      color: var(--text-light);
+      font-weight: 300;
+      margin-bottom: 1.2rem;
+    }
+    .about-values {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.5rem;
+    }
+    .value-chip {
+      background: rgba(201,152,176,0.15);
+      color: var(--mauve);
+      border: 1px solid rgba(201,152,176,0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    /* TEAM */
+    .team { background: var(--white); }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+    .team-card {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      border-radius: 20px;
+      border: 1px solid rgba(200,160,180,0.18);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .team-card:hover { transform: translateY(-5px); box-shadow: 0 14px 40px var(--shadow); }
+    .team-avatar {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      margin: 0 auto 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      background: linear-gradient(135deg, rgba(232,200,212,0.5), rgba(168,184,154,0.3));
+    }
+    .team-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: var(--deep-mauve);
+      margin-bottom: 0.3rem;
+    }
+    .team-card .role {
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--rose);
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+    }
+    .team-card p { font-size: 0.88rem; color: var(--text-light); font-weight: 300; }
+
+    /* CONTACT */
+    .contact-section { background: var(--cream); }
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .contact-info h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: var(--deep-mauve);
+      margin-bottom: 1rem;
+    }
+    .contact-info p { color: var(--text-light); font-weight: 300; margin-bottom: 2rem; }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .contact-item-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: rgba(201,152,176,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .contact-item-text strong {
+      display: block;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--mauve);
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+    .contact-item-text span { color: var(--text-light); font-size: 0.95rem; }
+    .contact-item-text a { color: var(--mauve); transition: color 0.2s; }
+    .contact-item-text a:hover { color: var(--deep-mauve); }
+
+    .crisis-box {
+      background: linear-gradient(135deg, var(--deep-mauve), var(--mauve));
+      color: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+    .crisis-box h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .crisis-box p { font-size: 0.88rem; color: rgba(255,255,255,0.8); margin-bottom: 0; }
+    .crisis-box strong { color: white; }
+
+    /* FORM */
+    .contact-form-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 2.5rem;
+      border: 1px solid rgba(200,160,180,0.18);
+      box-shadow: 0 8px 40px var(--shadow);
+    }
+    .form-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      color: var(--deep-mauve);
+      margin-bottom: 0.4rem;
+    }
+    .form-subtitle { color: var(--text-light); font-size: 0.9rem; margin-bottom: 2rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--mauve);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1.5px solid rgba(200,160,180,0.25);
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text);
+      background: var(--cream);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      -webkit-appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--rose);
+      box-shadow: 0 0 0 3px rgba(201,152,176,0.15);
+    }
+    .form-group textarea { resize: vertical; min-height: 130px; }
+    .form-submit {
+      width: 100%;
+      background: var(--mauve);
+      color: var(--white);
+      border: none;
+      padding: 1rem;
+      border-radius: 50px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+      box-shadow: 0 4px 20px rgba(125, 90, 126, 0.3);
+      margin-top: 0.5rem;
+    }
+    .form-submit:hover { background: var(--deep-mauve); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(125, 90, 126, 0.35); }
+    .form-note { font-size: 0.8rem; color: var(--text-light); text-align: center; margin-top: 1rem; }
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      background: rgba(168,184,154,0.15);
+      border-radius: 12px;
+      border: 1px solid rgba(168,184,154,0.3);
+      margin-top: 1.5rem;
+    }
+    .success-msg .check { font-size: 2.5rem; margin-bottom: 0.8rem; }
+    .success-msg h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--deep-mauve); margin-bottom: 0.5rem; }
+    .success-msg p { color: var(--text-light); font-size: 0.9rem; }
+
+    /* FOOTER */
+    footer {
+      background: var(--deep-mauve);
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: white; margin-bottom: 0.5rem; }
+    .footer-tagline { font-family: 'Dancing Script', cursive; color: var(--blush); margin-bottom: 1.5rem; font-size: 0.95rem; }
+    .footer-links { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; list-style: none; }
+    .footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.6); letter-spacing: 0.04em; transition: color 0.2s; }
+    .footer-links a:hover { color: white; }
+    .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.35); }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .about-layout { grid-template-columns: 1fr; }
+      .about-img-wrapper { display: none; }
+      .contact-layout { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      section { padding: 4rem 1.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-form-card { padding: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">Hope for Healing</a>
+    <ul class="nav-links">
+      <li><a href="index.html#mission">Mission</a></li>
+      <li><a href="index.html#donate">Donate</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="feeds.html">Community Feed</a></li>
+      <li><a href="index.html" class="nav-home">← Home</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="index.html#mission">Mission</a>
+    <a href="index.html#donate">Donate</a>
+    <a href="feeds.html">Community Feed</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-content">
+      <p class="page-eyebrow">We'd love to hear from you</p>
+      <h1>About Us &amp;<br><em>Contact</em></h1>
+      <p>Learn more about our story, meet our team, and reach out — we're here for you.</p>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="inner">
+      <div class="about-layout">
+        <div class="about-img-wrapper reveal">
+          <img src="images/LogoCircleTransparent.png" alt="Hope for Healing Foundation" class="about-logo" />
+        </div>
+        <div class="about-text reveal">
+          <h2>Our <em>Story</em></h2>
+          <p>Hope for Healing Foundation was born from a deeply personal place — from lived experiences with mental health struggles, loss, and the long, winding road to healing. We believe that every person deserves to be seen, heard, and supported.</p>
+          <p>The semicolon in our logo is intentional. Adapted from the Semicolon Project, it represents a pause — not an ending. When an author could have chosen to end a sentence but didn't, they used a semicolon. <strong>You are the author. Your story isn't over.</strong></p>
+          <p>The butterfly alongside the semicolon represents transformation — the beautiful, resilient process of healing and becoming. Together, these symbols reflect our core belief: that out of the darkest moments, something extraordinary can emerge.</p>
+          <div class="about-values">
+            <span class="value-chip">Compassion</span>
+            <span class="value-chip">Hope</span>
+            <span class="value-chip">Community</span>
+            <span class="value-chip">Resilience</span>
+            <span class="value-chip">Healing</span>
+            <span class="value-chip">Awareness</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="team">
+    <div class="inner">
+      <p class="section-label">The People Behind the Mission</p>
+      <h2 class="section-title">Our Team</h2>
+      <p class="section-subtitle">We are a group of passionate advocates, survivors, and supporters united by a single purpose: bringing hope to those who need it most.</p>
+      <div class="team-grid">
+        <div class="team-card reveal">
+          <div class="team-avatar">🕊️</div>
+          <h3>Dawn Link</h3>
+          <h4>Founder & President</h4>
+          <p>Oversees the organization, leads meetings, manages operations, oversees programs and partnerships, and represents the nonprofit publicly.</p>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-avatar">🌿</div>
+          <h3>Megan McHugh</h3>
+          <h4>Secretary</h4>
+          <p>Maintains meeting minutes, organizational records, bylaws, official documents, and tracks board records and notices.</p>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-avatar">💜</div>
+          <h3>Dianne Pfueller</h3>
+          <h4>Treasurer</h4>
+          <p>Oversees financial records, budgets, nonprofit reporting, income and expenses, and helps ensure financial transparency and compliance.</p>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-avatar">🦋</div>
+          <h3>Vacant</h3>
+          <h4>Vice President</h4>
+          <p>Manages our incredible team of volunteers and ensures every person who wants to contribute their time and heart has a meaningful way to do so.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <div class="inner">
+      <p class="section-label">Reach Out</p>
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="section-subtitle">Whether you have a question, want to volunteer, or simply need someone to talk to — we are here.</p>
+      <div class="contact-layout">
+        <div class="reveal">
+          <div class="contact-info">
+            <h3>We're Here for You</h3>
+            <p>Have a question, want to partner with us, or just want to say hello? Reach out through any of the channels below or use the contact form — we'll respond with warmth and care.</p>
+            <div class="contact-item">
+              <div class="contact-item-icon">✉️</div>
+              <div class="contact-item-text">
+                <strong>Email</strong>
+                <span><a href="mailto:hopeforhealingaccess@gmail.com">hello@hopeforhealingaccess@gmail.com</a></span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">📱</div>
+              <div class="contact-item-text">
+                <strong>Social Media</strong>
+                <span><a href="https://www.instagram.com/hopeforhealingaccess/"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M240 363.3L240 576L356 576L356 363.3L442.5 363.3L460.5 265.5L356 265.5L356 230.9C356 179.2 376.3 159.4 428.7 159.4C445 159.4 458.1 159.8 465.7 160.6L465.7 71.9C451.4 68 416.4 64 396.2 64C289.3 64 240 114.5 240 223.4L240 265.5L174 265.5L174 363.3L240 363.3z"/></svg></a>   <a href="https://www.instagram.com/hopeforhealingaccess/"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M320.3 205C256.8 204.8 205.2 256.2 205 319.7C204.8 383.2 256.2 434.8 319.7 435C383.2 435.2 434.8 383.8 435 320.3C435.2 256.8 383.8 205.2 320.3 205zM319.7 245.4C360.9 245.2 394.4 278.5 394.6 319.7C394.8 360.9 361.5 394.4 320.3 394.6C279.1 394.8 245.6 361.5 245.4 320.3C245.2 279.1 278.5 245.6 319.7 245.4zM413.1 200.3C413.1 185.5 425.1 173.5 439.9 173.5C454.7 173.5 466.7 185.5 466.7 200.3C466.7 215.1 454.7 227.1 439.9 227.1C425.1 227.1 413.1 215.1 413.1 200.3zM542.8 227.5C541.1 191.6 532.9 159.8 506.6 133.6C480.4 107.4 448.6 99.2 412.7 97.4C375.7 95.3 264.8 95.3 227.8 97.4C192 99.1 160.2 107.3 133.9 133.5C107.6 159.7 99.5 191.5 97.7 227.4C95.6 264.4 95.6 375.3 97.7 412.3C99.4 448.2 107.6 480 133.9 506.2C160.2 532.4 191.9 540.6 227.8 542.4C264.8 544.5 375.7 544.5 412.7 542.4C448.6 540.7 480.4 532.5 506.6 506.2C532.8 480 541 448.2 542.8 412.3C544.9 375.3 544.9 264.5 542.8 227.5zM495 452C487.2 471.6 472.1 486.7 452.4 494.6C422.9 506.3 352.9 503.6 320.3 503.6C287.7 503.6 217.6 506.2 188.2 494.6C168.6 486.8 153.5 471.7 145.6 452C133.9 422.5 136.6 352.5 136.6 319.9C136.6 287.3 134 217.2 145.6 187.8C153.4 168.2 168.5 153.1 188.2 145.2C217.7 133.5 287.7 136.2 320.3 136.2C352.9 136.2 423 133.6 452.4 145.2C472 153 487.1 168.1 495 187.8C506.7 217.3 504 287.3 504 319.9C504 352.5 506.7 422.6 495 452z"/></svg></a>   <a href="tiktok"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M544.5 273.9C500.5 274 457.5 260.3 421.7 234.7L421.7 413.4C421.7 446.5 411.6 478.8 392.7 506C373.8 533.2 347.1 554 316.1 565.6C285.1 577.2 251.3 579.1 219.2 570.9C187.1 562.7 158.3 545 136.5 520.1C114.7 495.2 101.2 464.1 97.5 431.2C93.8 398.3 100.4 365.1 116.1 336C131.8 306.9 156.1 283.3 185.7 268.3C215.3 253.3 248.6 247.8 281.4 252.3L281.4 342.2C266.4 337.5 250.3 337.6 235.4 342.6C220.5 347.6 207.5 357.2 198.4 369.9C189.3 382.6 184.4 398 184.5 413.8C184.6 429.6 189.7 444.8 199 457.5C208.3 470.2 221.4 479.6 236.4 484.4C251.4 489.2 267.5 489.2 282.4 484.3C297.3 479.4 310.4 469.9 319.6 457.2C328.8 444.5 333.8 429.1 333.8 413.4L333.8 64L421.8 64C421.7 71.4 422.4 78.9 423.7 86.2C426.8 102.5 433.1 118.1 442.4 131.9C451.7 145.7 463.7 157.5 477.6 166.5C497.5 179.6 520.8 186.6 544.6 186.6L544.6 274z"/></svg></a></span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">🌐</div>
+              <div class="contact-item-text">
+                <strong>Donate Online</strong>
+                <span>Venmo or GoFundMe — <a href="index.html#donate">see all options →</a></span>
+              </div>
+            </div>
+          </div>
+          <div class="crisis-box">
+            <h4>⚡ In Crisis? Please Reach Out Now</h4>
+            <p>If you or someone you love is in immediate crisis, please contact the <strong><a href="tel:988">988</a> Suicide &amp; Crisis Lifeline</strong> by calling or texting <strong><a href="sms:988">988</a></strong>. Available 24/7, free and confidential.</p>
+          </div>
+        </div>
+        <div class="contact-form-card reveal">
+          <h3 class="form-title">Send Us a Message</h3>
+          <p class="form-subtitle">We read every message and respond to each one personally.</p>
+          <form id="contactForm" novalidate>
+            <input type="hidden" name="_formspree_id" value="xbdbqjdp" />
+            <!-- Honeypot spam filter — leave this hidden -->
+            <input type="text" name="_gotcha" style="display:none" />
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="first_name" placeholder="Jane" required />
+              </div>
+              <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="last_name" placeholder="Doe" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="subject">I'm reaching out about...</label>
+              <select id="subject" name="subject">
+                <option value="">Select a topic</option>
+                <option>General Inquiry</option>
+                <option>Volunteering</option>
+                <option>Donation / Giving</option>
+                <option>Corporate Partnership</option>
+                <option>Media / Press</option>
+                <option>I need support resources</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea id="message" name="message" placeholder="Share your thoughts, questions, or how you'd like to get involved..." required></textarea>
+            </div>
+
+            <button type="submit" class="form-submit" id="submitBtn">Send Message 💜</button>
+            <p class="form-note" id="formNote">We typically respond within 1–2 business days.</p>
+
+            <div class="success-msg" id="successMsg">
+              <div class="check">💜</div>
+              <h4>Message Received!</h4>
+              <p>Thank you for reaching out. We'll be in touch soon. Remember — you are never alone.</p>
+            </div>
+            <div class="error-msg" id="errorMsg" style="display:none; margin-top:1rem; padding:1rem; background:rgba(220,39,67,0.08); border:1px solid rgba(220,39,67,0.2); border-radius:10px; text-align:center; font-size:0.88rem; color:#c0392b;">
+              Something went wrong. Please try again or email us directly. 💜
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="team">
+    <div class="inner">
+      <p class="section-label">The Creator Behind the Mission</p>
+      <h2 class="section-title">About Me</h2>
+      <p>My name is <strong>Dawn Link</strong>, founder of <strong>Hope for Healing Access Foundation Inc</strong>.</p></br>
+      <p>As a mother, wife, community member, and professional, I have seen firsthand how deeply mental health challenges affect individuals, families, and entire communities. Throughout my personal journey, I have watched adolescents, parents, friends, and loved ones struggle not only with mental health conditions, but also with the overwhelming barriers to getting help.</p></br>
+      <p>Too often, people are ready to seek support but cannot afford therapy, psychiatric care, aftercare, or ongoing treatment. Many are left facing some of the hardest moments of their lives alone because access to care feels out of reach.</p></br>
+      <p>That is why I created Hope for Healing.</p></br>
+      <p>This foundation was built on the belief that mental health care should never be a privilege reserved only for those who can afford it. Our mission is to help break down barriers to care by supporting access to therapy, psychiatric services, recovery support, and mental health resources for adolescents, individuals, and families in need.</p></br>
+      <p>Hope for Healing is more than a foundation &mdash; it is a community-driven effort rooted in compassion, advocacy, hope, and healing. We are committed to helping people feel seen, supported, and reminded that they are never alone in their journey.</p></br>
+      <p>My hope is that through this foundation we can build stronger communities, reduce stigma, and create real opportunities for healing.</p></br>
+      <p>You are not alone. Your story matters. There is hope.</p></br>
+      <p>With Purpose,</p></br>
+      <p>Dawn</p></br>
+      <p>I want to thank my husband, Jamie, and our daughters, Addelyn and Bella, for being part of this journey. Your love, support, and encouragement mean everything to me, and I look forward to continuing to grow this mission together as a family.</p>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-logo">Hope for Healing Foundation</div>
+    <div class="footer-tagline">For hope. ♡</div>
+    <ul class="footer-links">
+      <li><a href="index.html#mission">Mission</a></li>
+      <li><a href="index.html#donate">Donate</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="feeds.html">Community Feed</a></li>
+    </ul>
+    <ul class="footer-links">
+      <li><a href="https://www.instagram.com/hopeforhealingaccess/"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M240 363.3L240 576L356 576L356 363.3L442.5 363.3L460.5 265.5L356 265.5L356 230.9C356 179.2 376.3 159.4 428.7 159.4C445 159.4 458.1 159.8 465.7 160.6L465.7 71.9C451.4 68 416.4 64 396.2 64C289.3 64 240 114.5 240 223.4L240 265.5L174 265.5L174 363.3L240 363.3z"/></svg></a></li>
+      <li><a href="https://www.instagram.com/hopeforhealingaccess/"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M320.3 205C256.8 204.8 205.2 256.2 205 319.7C204.8 383.2 256.2 434.8 319.7 435C383.2 435.2 434.8 383.8 435 320.3C435.2 256.8 383.8 205.2 320.3 205zM319.7 245.4C360.9 245.2 394.4 278.5 394.6 319.7C394.8 360.9 361.5 394.4 320.3 394.6C279.1 394.8 245.6 361.5 245.4 320.3C245.2 279.1 278.5 245.6 319.7 245.4zM413.1 200.3C413.1 185.5 425.1 173.5 439.9 173.5C454.7 173.5 466.7 185.5 466.7 200.3C466.7 215.1 454.7 227.1 439.9 227.1C425.1 227.1 413.1 215.1 413.1 200.3zM542.8 227.5C541.1 191.6 532.9 159.8 506.6 133.6C480.4 107.4 448.6 99.2 412.7 97.4C375.7 95.3 264.8 95.3 227.8 97.4C192 99.1 160.2 107.3 133.9 133.5C107.6 159.7 99.5 191.5 97.7 227.4C95.6 264.4 95.6 375.3 97.7 412.3C99.4 448.2 107.6 480 133.9 506.2C160.2 532.4 191.9 540.6 227.8 542.4C264.8 544.5 375.7 544.5 412.7 542.4C448.6 540.7 480.4 532.5 506.6 506.2C532.8 480 541 448.2 542.8 412.3C544.9 375.3 544.9 264.5 542.8 227.5zM495 452C487.2 471.6 472.1 486.7 452.4 494.6C422.9 506.3 352.9 503.6 320.3 503.6C287.7 503.6 217.6 506.2 188.2 494.6C168.6 486.8 153.5 471.7 145.6 452C133.9 422.5 136.6 352.5 136.6 319.9C136.6 287.3 134 217.2 145.6 187.8C153.4 168.2 168.5 153.1 188.2 145.2C217.7 133.5 287.7 136.2 320.3 136.2C352.9 136.2 423 133.6 452.4 145.2C472 153 487.1 168.1 495 187.8C506.7 217.3 504 287.3 504 319.9C504 352.5 506.7 422.6 495 452z"/></svg></a></li>
+      <li><a href="https://www.tiktok.com/@opendoorstohealin"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M544.5 273.9C500.5 274 457.5 260.3 421.7 234.7L421.7 413.4C421.7 446.5 411.6 478.8 392.7 506C373.8 533.2 347.1 554 316.1 565.6C285.1 577.2 251.3 579.1 219.2 570.9C187.1 562.7 158.3 545 136.5 520.1C114.7 495.2 101.2 464.1 97.5 431.2C93.8 398.3 100.4 365.1 116.1 336C131.8 306.9 156.1 283.3 185.7 268.3C215.3 253.3 248.6 247.8 281.4 252.3L281.4 342.2C266.4 337.5 250.3 337.6 235.4 342.6C220.5 347.6 207.5 357.2 198.4 369.9C189.3 382.6 184.4 398 184.5 413.8C184.6 429.6 189.7 444.8 199 457.5C208.3 470.2 221.4 479.6 236.4 484.4C251.4 489.2 267.5 489.2 282.4 484.3C297.3 479.4 310.4 469.9 319.6 457.2C328.8 444.5 333.8 429.1 333.8 413.4L333.8 64L421.8 64C421.7 71.4 422.4 78.9 423.7 86.2C426.8 102.5 433.1 118.1 442.4 131.9C451.7 145.7 463.7 157.5 477.6 166.5C497.5 179.6 520.8 186.6 544.6 186.6L544.6 274z"/></svg></a></li>
+    </ul>
+    <p class="footer-copy">© 2025 Hope for Healing Access Foundation Inc. All rights reserved.</p>
+  </footer>
+  <script>
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 100);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    // ── Formspree form submission ──
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const fname   = document.getElementById('fname').value.trim();
+      const email   = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const btn     = document.getElementById('submitBtn');
+      const note    = document.getElementById('formNote');
+      const success = document.getElementById('successMsg');
+      const error   = document.getElementById('errorMsg');
+
+      // Basic client-side validation
+      if (!fname || !email || !message) {
+        // Highlight empty required fields
+        ['fname','email','message'].forEach(id => {
+          const el = document.getElementById(id);
+          if (!el.value.trim()) {
+            el.style.borderColor = '#dc2743';
+            el.addEventListener('input', () => el.style.borderColor = '', { once: true });
+          }
+        });
+        return;
+      }
+
+      // Get Formspree ID from the hidden input
+      const formspreeId = document.querySelector('input[name="_formspree_id"]').value;
+
+      if (formspreeId === 'YOUR_FORMSPREE_ID') {
+        // Dev mode: show success so you can see the UI without a real ID
+        btn.textContent = 'Sending…';
+        btn.disabled = true;
+        await new Promise(r => setTimeout(r, 900));
+        btn.style.display = 'none';
+        note.style.display = 'none';
+        success.style.display = 'block';
+        console.warn('Formspree: replace YOUR_FORMSPREE_ID with your real endpoint ID.');
+        return;
+      }
+
+      // Disable button & show loading state
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      error.style.display = 'none';
+
+      try {
+        const formData = new FormData(e.target);
+        const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          btn.style.display = 'none';
+          note.style.display = 'none';
+          success.style.display = 'block';
+          e.target.reset();
+        } else {
+          throw new Error('Formspree returned ' + res.status);
+        }
+      } catch (err) {
+        console.error('Form error:', err);
+        btn.disabled = false;
+        btn.textContent = 'Send Message 💜';
+        error.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
