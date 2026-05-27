@@ -487,20 +487,20 @@
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
 
-    // Form submission (demo — replace with real backend or Formspree)
-    document.getElementById('submitBtn').addEventListener('click', () => {
-      const fname = document.getElementById('fname').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-      if (!fname || !email || !message) {
-        alert('Please fill in your name, email, and message before sending. 💜');
-        return;
-      }
-      document.getElementById('submitBtn').textContent = 'Sending...';
-      setTimeout(() => {
-        document.getElementById('submitBtn').style.display = 'none';
-        document.getElementById('successMsg').style.display = 'block';
-      }, 1000);
+    document.querySelectorAll('.pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      const filter = pill.dataset.filter;
+      ['instagram','tiktok','blog'].forEach(id => {
+        const el = document.getElementById('section-' + id);
+        if (filter === 'all' || filter === id) {
+          el.classList.remove('hidden');
+        } else {
+          el.classList.add('hidden');
+        }
+        });
+      });
     });
   </script>
 </body>
